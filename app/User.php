@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // 1 usuário tem 1 loja |  model = store
+    public function store() {
+
+        return $this->hasOne(Store::class); // "O model user (Tem-Uma) loja"
+
+    }
 }
