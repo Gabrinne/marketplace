@@ -107,11 +107,12 @@ Route::get('/model', function() {
 }); 
 
 Route::prefix('admin')->namespace('Admin')->group(function(){
-    Route::prefix('stores')->group(function(){
-        
+    Route::prefix('stores')->group(function(){        
         Route::get('/', 'StoreController@index');//lista as lojas
         Route::get('/create', 'StoreController@create'); //exibe form loja
         Route::post('/store', 'StoreController@store'); //salva as lojas form
+        Route::get('/{store}/edit', 'StoreController@edit'); 
+        Route::post('/update/{store}', 'StoreController@update');
     });
 });
 

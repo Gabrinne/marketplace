@@ -21,12 +21,12 @@
 
 <div class="form-group">
     <label>Telefone</label>
-    <input type="text" name="telefone" class="form-control">
+    <input type="text" name="phone" class="form-control">
 </div>
 
 <div class="form-group">
     <label>Celular</label>
-    <input type="text" name="celular" class="form-control">
+    <input type="text" name="mobile_phone" class="form-control">
 </div>
 
 <div class="form-group">
