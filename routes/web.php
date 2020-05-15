@@ -107,28 +107,37 @@ Route::get('/model', function() {
 
 }); 
 
-Route::prefix('admin')->namespace('Admin')->group(function(){
+Route::group(['middleware' => ['auth']], function(){
 
-    Route::prefix('stores')->name('admin.stores.')->group(function(){
+    
+    Route::prefix('admin')->namespace('Admin')->group(function(){
 
-        Route::get('/index', 'StoreController@index')->name('index');//lista as lojas
-        Route::get('/create', 'StoreController@create')->name('create'); //exibe form loja
-        Route::post('/store', 'StoreController@store')->name('store'); //salva as lojas form
-        Route::get('/{store}/edit', 'StoreController@edit')->name('edit'); 
-        Route::put('/update/{store}', 'StoreController@update')->name('update');
-        Route::delete('/destroy/{store}', 'StoreController@destroy')->name('destroy');
+        Route::prefix('stores')->name('admin.stores.')->group(function(){
+    
+            Route::get('/index', 'StoreController@index')->name('index');//lista as lojas
+            Route::get('/create', 'StoreController@create')->name('create'); //exibe form loja
+            Route::post('/store', 'StoreController@store')->name('store'); //salva as lojas form
+            Route::get('/{store}/edit', 'StoreController@edit')->name('edit'); 
+            Route::put('/update/{store}', 'StoreController@update')->name('update');
+            Route::delete('/destroy/{store}', 'StoreController@destroy')->name('destroy');
+        });
+    
+        Route::prefix('products')->name('admin.products.')->group(function(){
+    
+            Route::get('/index', 'ProductController@index')->name('index');//lista as lojas
+            Route::get('/create', 'ProductController@create')->name('create'); //exibe form loja
+            Route::post('/product', 'ProductController@store')->name('store'); //salva as lojas form
+            Route::get('/{product}/edit', 'ProductController@edit')->name('edit'); 
+            Route::put('/update/{product}', 'ProductController@update')->name('update');
+            Route::delete('/destroy/{product}', 'ProductController@destroy')->name('destroy');
+        });
     });
-
-    Route::prefix('products')->name('admin.products.')->group(function(){
-
-        Route::get('/index', 'ProductController@index')->name('index');//lista as lojas
-        Route::get('/create', 'ProductController@create')->name('create'); //exibe form loja
-        Route::post('/product', 'ProductController@store')->name('store'); //salva as lojas form
-        Route::get('/{product}/edit', 'ProductController@edit')->name('edit'); 
-        Route::put('/update/{product}', 'ProductController@update')->name('update');
-        Route::delete('/destroy/{product}', 'ProductController@destroy')->name('destroy');
-    });
+    
 });
+        
+
+
+
 
 
 Auth::routes();
