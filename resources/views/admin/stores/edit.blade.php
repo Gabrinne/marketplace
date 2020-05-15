@@ -5,8 +5,9 @@
 <div class="container">
 
     <h1>Editar loja</h1>
-    <form action="/admin/stores/update/{{$store->id}}" method="POST">
-        <input type="hidden" name="_token" value="{{csrf_token()}}">
+    <form action="{{route('admin.stores.update', ['store' => $store -> id])}}" method="POST">
+        @csrf
+       @method('PUT')
         
         
         <div class="form-group">

@@ -6,7 +6,8 @@
     <thead>
         <tr> 
             <th>ID </th>
-            <th>Loja</th>
+            <th>Nome</th>
+        
             <th>Ações</th>
             
         </tr>
@@ -19,8 +20,17 @@
                 <td> {{$store->id }}</td>
                 <td> {{$store->name }}</td>
                 <td>
-                   <a href="{{route('admin.stores.edit', ['store' => $store -> id])}}" class="btn btn-sm btn-primary">EDITAR</a>
-                   <a href="{{route('admin.stores.destroy', ['store' => $store -> id])}}" class="btn btn-sm btn-danger">EXCLUIR</a>
+                    <div class="btn-group">
+
+                    <a href="{{route('admin.stores.edit', ['store' => $store -> id])}}" class="btn btn-sm btn-primary">EDITAR</a>
+
+                    <form action="{{route('admin.stores.destroy', ['store' => $store -> id])}}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit" class="btn btn-sm btn-danger"> REMOVER </button>
+
+                    </form>
+                    </div>                   
                 </td>
             </tr>
         @endforeach

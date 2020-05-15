@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     // 1 usuário tem 1 loja |  model = store
-    public function store() {
+    public function store() {  
 
         return $this->hasOne(Store::class); // "O model user (Tem-Uma) loja"
 

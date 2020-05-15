@@ -27,7 +27,7 @@ class CreateTableStore extends Migration
             //definindo chave estrangeira para a coluna user_id
             //a coluna user id receberá uma chave estrangeira que tem como ref a coluna id da tabela users. Isso pq a tabela stores tem relacao com users. users->stores.
             //stores_user_id_foreing
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
