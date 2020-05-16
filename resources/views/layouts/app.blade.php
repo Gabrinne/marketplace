@@ -22,7 +22,7 @@
             <li class="nav-item @if(request()->is('admin/stores/index'))active @endif">
                 <a class="nav-link" href="{{route('admin.stores.index')}}">Lojas<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item @if(request()->is('admin/products/index'))active @endif">
+            <li class="nav-item @if(request()->is('admin/products*/index'))active @endif">
                 <a class="nav-link" href="{{route('admin.products.index')}}">Produtos</a>
             </li>
             

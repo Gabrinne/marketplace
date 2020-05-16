@@ -12,11 +12,11 @@
 <div class="form-group">
     <label>Nome loja</label>
     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" >
-        @error('name')
+    @error('name')
         <div class="invalid-feedback">
             {{$message}}
         </div>
-      @enderror
+    @enderror
     </div>
 
 <div class="form-group">
